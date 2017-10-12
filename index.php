@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<title>Invisible Captcha Demo | JDM Digital</title>
-	<meta name="description" content=""/>
+	<meta name="description" content="An experiment to prevent spambot form submissions without annoying the heck out of your human form submitters."/>
 
 	<link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com" />
 	<link rel='dns-prefetch' href='//static-jdmdigital.netdna-ssl.com' />
@@ -19,13 +19,13 @@
 	<link rel="publisher" href="https://plus.google.com/+JDMDigitalAgencyDallas"/>
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:title" content="Invisible Captcha Demo | JDM Digital" />
-	<meta property="og:description" content="" />
+	<meta property="og:description" content="An experiment to prevent spambot form submissions without annoying the heck out of your human form submitters." />
 	<meta property="og:url" content="https://jdmdigital.co/nocaptcha/" />
 	<meta property="og:site_name" content="JDM Digital" />
 	<meta property="article:publisher" content="https://www.facebook.com/JDMdigital" />
 	<meta property="og:image" content="" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:description" content="" />
+	<meta name="twitter:description" content="An experiment to prevent spambot form submissions without annoying the heck out of your human form submitters." />
 	<meta name="twitter:title" content="Invisible Captcha Demo | JDM Digital" />
 	<meta name="twitter:site" content="@jdmdigital" />
 	<meta name="twitter:image" content="" />
@@ -41,10 +41,10 @@
 	<link rel="shortlink" href="" />
 
 	<!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 
 	<!-- Custom styles -->
-	<link href="custom.css?v=2" rel="stylesheet">
+	<link href="custom.css?v=3" rel="stylesheet">
 </head>
 
 <body>
@@ -159,11 +159,11 @@
 	<!-- Placed at the end of the document so the pages load faster -->	
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script>window.jQuery || document.write('<script src="jquery.min.js"><\/script>')</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>-->
+	<script src="js/bootstrap.min.js"></script>
 	
 	<!-- Magic Happens Here -->
-	<script src="main.js?v=2"></script>	
+	<script src="main.js?v=3"></script>	
 </body>
 
 </html>
