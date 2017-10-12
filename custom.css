@@ -1,0 +1,68 @@
+body {
+  padding-top: 5rem;
+}
+.wrapper {
+  padding: 3rem 1.5rem;
+}
+.bg-dark{background-color:#000;}
+.footer{background-color:rgba(153,153,153,0.4); border-top:1px solid #ddd; position: fixed; bottom: 0; width: 100%; height: 60px; line-height: 60px;}
+.extra-mg{margin-bottom:2rem;}
+
+#nocaptcha{
+	margin:3rem 0;
+}
+#toogoofy{
+	opacity:0; 
+	-webkit-transition:opacity 0.15s;
+	-moz-transition:opacity 0.15s;
+	transition:opacity 0.15s;
+}
+
+/* Checkbox CSS */
+.checkbox-wrapper{height: 40px; position: relative; width: 100%; margin-bottom:0;}
+.checkbox.checkbox-rounded{height: 40px; position: relative; width: 80px;}
+.checkbox-label{position:absolute; left:90px; top:13px; width:70%; font-size:1em; margin-bottom:0; line-height:1; color:#000;}
+.checkbox.checkbox-rounded input{opacity: 0;}
+.checkbox.checkbox-rounded label{position: absolute;  background-color: #28a745;  width: 100%;  height: 100%;  top: 0;  left: 0;  border-radius: 3em;  -webkit-transition: background-color .2s ease-in-out;  transition: background-color .2s ease-in-out;}
+.checkbox.checkbox-rounded label:after {background-color: #fffffd;    border-radius: 50%;    content: "";    cursor: pointer;    display: block;    height: 30px;    left: 5px;    position: absolute;    top: 5px;    width: 30px; z-index: 1; -webkit-transition: left .2s ease-in-out;          transition: left .2s ease-in-out;}
+.checkbox.checkbox-rounded input[type=checkbox]:checked ~ label {background-color: #c82333;}
+.checkbox.checkbox-rounded input[type=checkbox]:checked ~ label:after {left: 45px;}
+/* END Checkbox CSS */
+
+/* Validation Styles */
+.form-text.invalid-feedback{opacity:1;}
+
+/* Honeypot - Who uses a Fax any more?! */
+.fax-wrap{position:fixed; top:-2000px; speak:none;}
+
+/* Ajax Loader */
+.form-wrap{position:relative;}
+.loading form{
+	opacity:0.25;
+	-webkit-transition:opacity 0.5s;
+	-moz-transition:opacity 0.5s;
+	transition:opacity 0.5s;
+}
+#loader{
+	font-size:2rem;
+	color:#000;
+	font-weight:bold;
+	display:none;
+	opacity:0;
+	
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+	
+	-webkit-transition:opacity 0.4s;
+	-moz-transition:opacity 0.4s;
+	transition:opacity 0.4s;
+}
+.loading #loader{
+	position:absolute;
+	display:block;
+	opacity:1;
+	-webkit-transition:opacity 0.4s;
+	-moz-transition:opacity 0.4s;
+	transition:opacity 0.4s;
+}
