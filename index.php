@@ -68,13 +68,13 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="https://jdmdigital.co/demo/nocaptcha/extras/" id="extras-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Extras</a>
 					<div class="dropdown-menu" aria-labelledby="extras-dropdown">
-						<a class="dropdown-item link-external" href="#">View Code on GitHub</a>
+						<a class="dropdown-item link-external" href="https://github.com/jdmdigital/nocaptcha">View Code on GitHub</a>
 						<a class="dropdown-item link-external" href="#">Inspriation Article</a>
 						<a class="dropdown-item link-external" href="https://jdmdigital.co/labs/" title="JDM Labs">Other Code Projects</a>
 					</div>
 				</li>
 			</ul>
-			<a class="link-external btn btn-light d-none d-sm-inline-block" href="#" title="Latest Release on GitHub">Download</a>
+			<a class="link-external btn btn-light d-none d-sm-inline-block" href="https://github.com/jdmdigital/nocaptcha/releases" title="Latest Release on GitHub">Download</a>
 		</div>
 	</nav>
 	
