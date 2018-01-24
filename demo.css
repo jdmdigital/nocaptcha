@@ -1,0 +1,60 @@
+/* Fancy Styles for the Demo */
+body {
+	overflow-x: hidden;
+	padding-top: 5rem;
+}
+.wrapper {
+  	padding: 3rem 1.5rem;
+	position:relative;
+	z-index:1;
+	overflow: hidden;
+	width: 100%;
+	height: auto;
+}
+
+.container{transition: all 0.15s;}
+.preload{width: 100%;height: 100%;position: fixed;background: transparent;background: rgba( 0, 0, 0, 0.1 );top: 0;left: 0;z-index: 99999;}
+.preload.processing{background: transparent;}
+.preload .alert{position: absolute; left: 50%;top: 50%;width: 380px;height: auto; margin: -90px 0 0 -190px;}
+.js .preload .alert{display: none;}
+.loading{opacity: 0; position: relative;left: 50%;top: 50%;width: 200px;height: 200px;margin: -125px 0 0 -100px;}
+.loading img{height: auto; width: 100%;}
+.processing .loading{opacity:1; width: 350px;height: 350px;margin: -200px 0 0 -175px;}
+.blurred{filter: grayscale(80%) blur(4px);-webkit-filter: grayscale(80%) blur(4px);-moz-filter: grayscale(80%) blur(4px);-o-filter: grayscale(80%) blur(4px);-ms-filter: grayscale(80%) blur(4px);}
+form.blurred{filter: grayscale(0%) blur(2px);-webkit-filter: grayscale(0%) blur(2px);-moz-filter: grayscale(0%) blur(2px);-o-filter: grayscale(0%) blur(2px);-ms-filter: grayscale(0%) blur(2px);}
+.processing{opacity: 0.7;}
+#nocaptcha{position: relative;}
+#form-loading {position:absolute;left: 50%;top: 50%;width: 200px;height: 200px;margin: -80px 0 0 -100px;}
+.feedback {background-color: #f7f7f9; text-align: left; padding: 1rem; margin-bottom: 0; margin-top: 2rem; display: none;}
+.feedback pre{text-align: left; background-color: transparent; padding: 0; margin: 0; border:none;}
+.feedback p{margin-bottom: 0; line-height: 1.1;}
+h1, .title-clone, .navbar-brand{font-weight: 700; font-family: 'Poppins', sans-serif;}
+.title-clone{position: absolute; top:-66px; left: -46px;z-index: -1; white-space: nowrap; color: #f9f9f9; color: rgba(0,0,0,0.02); font-size: 30em; font-size: 50vh; letter-spacing: -5px; letter-spacing: -3vh; line-height: 1; font-weight: 900;}
+h1{font-size:2rem; line-height: 1.2;}
+@media only screen and (min-width : 768px) {
+	h1{font-size:3.25rem;}
+	.nav-item a.btn-default{color: #343a40; background-color:#f8f8f8;}
+	.nav-item a.btn-default:hover, .nav-item a.btn-default:focus{color: #343a40; background-color:#fff;}
+	.nav-item a.btn-default:active{color: #111; background-color:#fff;}
+}
+@media only screen and (min-width : 980px) {
+	h1{font-size:4.3rem;}
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+.fadeIn {
+	animation-name: fadeIn;
+	animation-delay: 0.15s;
+	animation-duration: 0.3s;
+	animation-fill-mode: both;
+}
+
+.fadeIn.fadeIn--slow{animation-delay: 0.5s; animation-duration: 1s;}
+.footer{background-color:#f9f9f9; text-align: center; border-top:1px solid #eee; padding: 40px 0; padding: 3rem 0;}

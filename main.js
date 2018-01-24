@@ -1,78 +1,61 @@
-// Magic Stuff Goes Here
+/*
+ * No Captcha v0.1.5
+ */
+
+
+// Preload the page (ideally just once)
+function preloaderStop() {
+	"use strict";
+	$('#main').removeClass('blurred');
+	$('#main-preloader').fadeOut();
+	//$('#main-preloader .loading').removeAttr('style'); // clean-up
+}
+
+// Style Form During Processing
+// Accepts TRUE or FALSE to add or remove the processing styles
+// Must be a better way of doing this
+function formloading(loading){
+	"use strict";
+	if(loading === false){
+		//$('#main-preloader').fadeOut().removeClass('processing');
+		$('#form-loading').fadeOut();
+		setTimeout(function() {
+			$('form#nocaptcha').removeClass('processing blurred');
+		}, 150);
+	} else { 
+		$('form#nocaptcha').addClass('processing blurred');
+		//$('#main').addClass('processing');
+		setTimeout(function() {
+			$('#form-loading').fadeIn();
+		}, 300);
+	}
+} // END formloading()
+
 
 /* == The Good Stuff == */
-$( document ).ready(function() {
-	// Inversed Checkboxes for AntiSpam
-	$('.robot-check').click(function() {
-		if($('.robot-check').prop('checked')) {
-			$('.robot-check').parent().parent().find('.checkbox-label').text('I am 100% robot');
-		} else {
-			$('.robot-check').parent().parent().find('.checkbox-label').text('I\'m NOT a robot!');
-		}
-	});
+$(document).ready(function() {
+	"use strict";
 	
-	// Form Input Timing
-	$('.form-control').focus(function() {			
-		if($('#somethingcrazy').length && $('#somethingcrazy').val() == '') {
-			var timeStart = Date.now();
-			$('#somethingcrazy').val(timeStart);
-		} 
-	});
+	$('html').removeClass('no-js').addClass('js');
 	
-	// AJAX Submission
-	$('form#nocaptcha').submit(function(evt) {			
-		// I'll take it from here...
+	$('form#nocaptcha').submit(function(evt) {
 		evt.preventDefault();
+		formloading(true);
 		
-		var the_form = $('form#nocaptcha');
-		var is_sending = false;
-		var goofy = true; // assume it's a robot for now
-		var timeEnd = Date.now();
-		var goodTime = 3000; // form complete time in human speed
-		var timeStart = $('#somethingcrazy').val();
-		var theTime = timeEnd - timeStart;
-		
-		if(!$('.robot-check').prop('checked')) {
-			goofy = false;
-		} 
-		
-		if(!goofy && !is_sending) {
-			$('.form-wrap').addClass('loading');
-			$.ajax({
-				url		: 'process.php',
-				type	: 'post',
-				dataType: 'json',
-				data	: $(this).serialize(),
-				beforeSend: function () {
-					is_sending = true;
-					$(the_form).addClass('is-sending');
-				},
-				error: handleFormError,
-				success	: function(response) {
-					//console.log(response);
-					if(response.status === 'success') {
-						// Trigger Success Message
-						console.log(response);
-						handleFormSuccess(response);
-					} else {
-						handleFormError(response);
-					}
-				},
-				complete : function() {
-					// housekeeping for success AND failure
-					$(the_form).addClass('was-validated');
-					$(the_form).removeClass('is-sending');
-					$('.form-wrap').removeClass('loading');
-					console.log(response);
-				}
-			}); // END .ajax
+		// Pretend the form takes 3 seconds to process...
+		setTimeout(function() {
+			formloading(false);
+			$('#toogoofy').text('Submission Successful!').addClass('text-success').fadeTo(1,150);
+			$('#feedback-info').slideDown();
 			
-		} // END !goofy
-		
-		else {
-			$('#toogoofy').fadeTo(200, 1);
-		} // it's too goofy
-		
-	}); // END submit function
+		}, 3000);
+	}); // END Submit Functions
 	
-});  // END doc.ready
+	// Fire the Preloader Stop when everything is done (or assumed done)
+	if($('#nocaptcha').length){
+		setTimeout(preloaderStop, 700);
+	}
+
+}); // Doc.ready
+
+
