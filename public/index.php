@@ -137,7 +137,7 @@ try {
     $error = 'The demo is temporarily unavailable.';
 }
 
-$repoUrl = getenv('NOCAPTCHA_REPO_URL') ?: ($config['repoUrl'] ?? '');
+$repoUrl = getenv('NOCAPTCHA_REPO_URL') ?: ($config['repoUrl'] ?? 'https://github.com/jdmdigital/nocaptcha');
 $repoReady = is_string($repoUrl) && preg_match('~\Ahttps://github\.com/[a-zA-Z0-9-]+/[a-zA-Z0-9_.-]+/?\z~', $repoUrl) === 1;
 $publicUrl = $config['publicUrl'] ?? '';
 $isPublic = is_string($publicUrl) && str_starts_with($publicUrl, 'https://') && filter_var($publicUrl, FILTER_VALIDATE_URL);

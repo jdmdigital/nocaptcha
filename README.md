@@ -26,7 +26,7 @@ php -S 127.0.0.1:8853 -t public
 
 Open [localhost:8853](http://127.0.0.1:8853/). Use a made-up name and message. The visible switch demonstrates the inverted checkbox. The red position is checked, and flipping it to green unchecks it. The canned bot examples use the same PHP verifier with isolated state, so they can be run repeatedly.
 
-For a public demo, map only `public/` to the URL in a PHP-capable host. Keep `src/`, the SQLite directory, and the secret outside the public document root. Exclude the demo’s dynamic page from CDN and page caches. Set `NOCAPTCHA_REPO_URL` to the public GitHub repository URL to enable the contributor link. Use a separate secret and database for each real application.
+For a public demo, map only `public/` to the URL in a PHP-capable host. Keep `src/`, the SQLite directory, and the secret outside the public document root. Exclude the demo’s dynamic page from CDN and page caches. Set `NOCAPTCHA_REPO_URL` to override the upstream contributor link for a fork. Use a separate secret and database for each real application.
 
 On hosts that do not pass environment variables to PHP, create a private `config.local.php` alongside this README that returns an array with `secret`, `database`, `repoUrl`, and `publicUrl`. The last two keys control the GitHub link and the canonical URL. This file is ignored by Git.
 
