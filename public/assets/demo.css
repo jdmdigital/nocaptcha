@@ -1,0 +1,65 @@
+main { padding-block: clamp(2rem, 4.2vw, 3.5rem); }
+.intro h1 { margin: 0; font: 900 clamp(2.5rem, 8vw, 6.25rem)/.98 var(--display); letter-spacing: -.075em; overflow-wrap: anywhere; }
+.intro h1 span { text-shadow: .045em .045em var(--acid); }
+.intro p { max-width: 51ch; margin: .9rem 0 2rem; color: var(--muted); font-size: clamp(1rem, 2vw, 1.25rem); }
+.lab { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: clamp(1rem, 3vw, 2rem); }
+.lab h2, .layers h2 { margin: 0; font-family: var(--display); letter-spacing: -.045em; line-height: 1.15; }
+.form-card, .inspection { border: 1px solid var(--ink); border-radius: .65rem; padding: clamp(1rem, 3vw, 1.7rem); }
+.form-card { background: var(--paper); }
+.form-card form { display: grid; gap: .45rem; }
+.form-card form > label { font-weight: 700; }
+.form-card input#name, .form-card textarea { width: 100%; padding: .6rem .7rem; margin-bottom: .4rem; background: #fff; color: var(--ink); border: 1px solid #817989; border-radius: .3rem; font: inherit; }
+.form-card textarea { resize: vertical; }
+.form-card button { justify-self: start; }
+.help { margin: .35rem 0 .75rem; font-size: .87rem; color: var(--muted); }
+.error { color: var(--danger); font-weight: 700; }
+.toggle { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: .55rem; cursor: pointer; width: fit-content; }
+.toggle input { position: absolute; inline-size: 1px; block-size: 1px; opacity: 0; }
+.switch { position: relative; width: 2.75rem; height: 1.55rem; border-radius: 2rem; background: var(--success); }
+.switch::after { content: ""; position: absolute; width: 1.05rem; height: 1.05rem; top: .25rem; right: .25rem; border-radius: 50%; background: #fff; }
+.toggle input:checked + .switch { background: var(--danger); }
+.toggle input:checked + .switch::after { right: 1.45rem; }
+.toggle input:focus-visible + .switch { outline: 2px solid var(--ink); outline-offset: 3px; }
+.toggle input:checked ~ .toggle-green, .toggle input:not(:checked) ~ .toggle-red { display: none; }
+.inspection { background: var(--ink); color: var(--paper); box-shadow: .3rem .3rem var(--acid); }
+.monitor-note { margin: .45rem 0 .85rem; font-size: .88rem; color: #dedbe3; }
+.monitor { display: grid; gap: .45rem; list-style: none; margin: 0; padding: 0; }
+.monitor li { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: .65rem; padding: .55rem .65rem; border: 1px solid #625b6a; border-radius: .3rem; background: #2d2933; }
+.monitor small { display: block; margin-top: .08rem; color: #dedbe3; }
+.layer-mark { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border: 1px solid currentColor; border-radius: 50%; font: 700 .9rem/1 var(--mono); color: #c5c1cc; }
+[data-state="pass"] .layer-mark { color: var(--acid); }
+[data-state="flag"] .layer-mark { color: #ffb0bc; }
+.monitor li[data-state="flag"] { border-color: #ba6e80; }
+.verdict { margin-top: .85rem; padding: .85rem; border: 1px solid #77717f; border-radius: .35rem; background: #2d2933; }
+.verdict > strong { color: var(--acid); font-size: 1.15rem; }
+.verdict[data-decision="review"] > strong { color: #ffd780; }
+.verdict[data-decision="reject"] > strong { color: #ffb0bc; }
+.verdict p, .verdict ul { margin: .3rem 0 0; }
+.verdict ul { padding-inline-start: 1.1rem; }
+.verdict code { color: #e6d7fa; }
+.bot-examples { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.bot-examples h3 { margin: 0; font-size: 1rem; }
+.form-card .scenarios { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.scenarios button { display: flex; align-items: center; justify-content: space-between; gap: .35rem; width: 100%; min-height: 2.55rem; padding: .4rem .55rem; border: 1px solid #817989; border-radius: .3rem; background: #fff; color: var(--ink); font-size: .83rem; line-height: 1.25; text-align: left; }
+.scenarios button:hover { background: var(--acid); border-color: var(--ink); }
+.layers { margin-top: clamp(2.5rem, 6vw, 4rem); padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.layers dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; margin-bottom: 0; }
+.layers dl div { padding: .85rem; border: 1px solid var(--line); border-radius: .35rem; }
+.layers dt { font-weight: 700; }
+.layers dd { margin: .3rem 0 0; color: var(--muted); font-size: .92rem; }
+.contribute { margin-top: clamp(2.5rem, 6vw, 4rem); padding: clamp(1.2rem, 4vw, 2.5rem); border: 1px solid var(--ink); border-radius: .55rem; background: var(--paper); }
+.contribute { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.3rem; align-items: center; }
+.contribute h2 { max-width: 24ch; margin: 0; font: 900 clamp(1.65rem, 4.5vw, 3rem)/1.08 var(--display); letter-spacing: -.055em; }
+.contribute p { max-width: 56ch; }
+.repo-note { color: var(--muted); font-size: .9rem; margin-bottom: 0; }
+.robot-art { position: relative; display: grid; place-items: center; width: clamp(8rem, 20vw, 15rem); min-height: 10rem; color: var(--ink); }
+.robot-head { position: relative; width: 6.4rem; height: 4.75rem; border: .18rem solid; border-radius: .85rem; background: var(--acid); box-shadow: .32rem .32rem var(--ink); transform: rotate(-8deg); }
+.robot-antenna { position: absolute; left: 50%; bottom: 100%; width: .16rem; height: 1.35rem; background: currentColor; }
+.robot-antenna::before { content: ""; position: absolute; top: -.3rem; left: -.2rem; width: .55rem; height: .55rem; border-radius: 50%; background: currentColor; }
+.robot-face { position: absolute; inset: .7rem; border: .14rem solid; border-radius: .45rem; background: var(--ink); }
+.robot-face::before { content: ""; position: absolute; top: .65rem; left: .7rem; width: .7rem; height: .17rem; background: var(--paper); transform: rotate(20deg); }
+.robot-face::after { content: ""; position: absolute; top: .65rem; right: .7rem; width: .7rem; height: .17rem; background: var(--paper); transform: rotate(-20deg); }
+.robot-spark { position: absolute; top: .2rem; right: .4rem; color: var(--danger); font: 900 2.1rem/1 var(--display); transform: rotate(14deg); }
+@media (max-width: 46rem) { .layers dl { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 40rem) { .lab, .contribute { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 24rem) { .layers dl, .form-card .scenarios { grid-template-columns: minmax(0, 1fr); } }
