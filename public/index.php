@@ -141,6 +141,10 @@ $repoUrl = getenv('NOCAPTCHA_REPO_URL') ?: ($config['repoUrl'] ?? 'https://githu
 $repoReady = is_string($repoUrl) && preg_match('~\Ahttps://github\.com/[a-zA-Z0-9-]+/[a-zA-Z0-9_.-]+/?\z~', $repoUrl) === 1;
 $publicUrl = $config['publicUrl'] ?? '';
 $isPublic = is_string($publicUrl) && str_starts_with($publicUrl, 'https://') && filter_var($publicUrl, FILTER_VALIDATE_URL);
+$shareImage = $isPublic ? rtrim($publicUrl, '/') . '/assets/share.png' : '';
+$pageTitle = 'noCAPTCHA | Term 13 Lab';
+$pageDescription = 'Try a self-hosted spam filter for contact forms and see which checks fire.';
+$shareAlt = 'A frustrated lime-green robot next to noCAPTCHA by Term 13.';
 if (!$isPublic) {
     header('X-Robots-Tag: noindex');
 }
@@ -161,9 +165,26 @@ $marks = ['pass' => '✓', 'flag' => '×', 'pending' => '–'];
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Try a self-hosted spam filter for contact forms and see which checks fire.">
-  <title>noCAPTCHA | Term 13 Lab</title>
-  <?php if ($isPublic): ?><link rel="canonical" href="<?= escape($publicUrl) ?>"><?php endif; ?>
+  <meta name="description" content="<?= escape($pageDescription) ?>">
+  <title><?= escape($pageTitle) ?></title>
+  <?php if ($isPublic): ?>
+  <link rel="canonical" href="<?= escape($publicUrl) ?>">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Term 13">
+  <meta property="og:url" content="<?= escape($publicUrl) ?>">
+  <meta property="og:title" content="<?= escape($pageTitle) ?>">
+  <meta property="og:description" content="<?= escape($pageDescription) ?>">
+  <meta property="og:image" content="<?= escape($shareImage) ?>">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="<?= escape($shareAlt) ?>">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<?= escape($pageTitle) ?>">
+  <meta name="twitter:description" content="<?= escape($pageDescription) ?>">
+  <meta name="twitter:image" content="<?= escape($shareImage) ?>">
+  <meta name="twitter:image:alt" content="<?= escape($shareAlt) ?>">
+  <?php endif; ?>
   <link rel="icon" href="./assets/reaction.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./assets/demo-shell.css">
   <link rel="stylesheet" href="./assets/demo.css">
@@ -283,3 +304,4 @@ $marks = ['pass' => '✓', 'flag' => '×', 'pending' => '–'];
   <footer class="site-footer"><div class="wrap footer-inner"><span>© Term 13, LLC</span><a href="https://term13.com/">Term 13 <span aria-hidden="true">↗</span></a></div></footer>
 </body>
 </html>
+
