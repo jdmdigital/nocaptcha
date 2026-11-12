@@ -32,6 +32,20 @@ For a public demo, map only `public/` to the URL in a PHP-capable host. Keep `sr
 
 On hosts that do not pass environment variables to PHP, create a private `config.local.php` alongside this README that returns an array with `secret`, `database`, `repoUrl`, and `publicUrl`. The last two keys control the GitHub link and the canonical URL. This file is ignored by Git.
 
+## Install in WordPress
+
+1. Install the repository ZIP through **Plugins → Add New → Upload Plugin**, or place its extracted directory under `wp-content/plugins/`. Activate **noCAPTCHA**. It requires WordPress 6.6+, PHP 8.1+, PDO SQLite, and ctype.
+2. Create a private directory outside the web root that PHP can read and write. Add the absolute path to a SQLite file in that directory to `wp-config.php`, above the line that loads WordPress. The verifier creates the database on first use. WordPress authentication salts provide the signing secret.
+
+   ```php
+   define('TERM13_NOCAPTCHA_DB', '/var/lib/wordpress/nocaptcha.sqlite');
+   ```
+
+3. Install a compatible version of [Term 13 Bubble](https://github.com/jdmdigital/term13-bubble) or [Term 13 Tab](https://github.com/jdmdigital/term13-tab). Bubble protects the contact, support, and beer forms. Tab protects guest comments on private proposals and invoices. Purge cached Bubble pages and scripts after activation. Keep Tab’s private document pages excluded from caches.
+4. Test a normal submission and a repeated message before going live. Use Bubble’s existing form controls and Tab’s built-in guest comment template, or follow the compatibility instructions in those repositories for overrides.
+
+The plugin loads the verifier for compatible callers. For a custom WordPress form, check `term13_nocaptcha_enabled()`, get a verifier from `term13_nocaptcha_guard()`, and follow the PHP integration below. Pass your form key through `term13_nocaptcha_form_key()` in both the render and submit handlers to scope it to the current site. Call `term13_nocaptcha_enqueue()` when rendering `data-nocaptcha` forms with browser signals. For cached markup, render `Guard::controls()` and populate its empty token from an uncached, form-scoped endpoint. Use a separate SQLite file for each WordPress installation.
+
 ## Install on an existing PHP contact form
 
 1. Put `src/Guard.php` in your application code. Copy `public/assets/nocaptcha.js` into your public assets if you want the optional browser signals.

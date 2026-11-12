@@ -28,9 +28,10 @@ final class Guard
         private int $perForm = 120,
         ?Closure $clock = null,
         private int $slowSeconds = self::DEFAULT_SLOW_SECONDS,
+        private int $maxMessageBytes = self::MAX_MESSAGE_BYTES,
     ) {
         if (strlen($secret) < 32 || $database === '' || $fastSeconds < 0 || $perClient < 1 || $perForm < 1
-            || $slowSeconds <= $fastSeconds || $slowSeconds >= self::TOKEN_TTL) {
+            || $slowSeconds <= $fastSeconds || $slowSeconds >= self::TOKEN_TTL || $maxMessageBytes < 1) {
             throw new InvalidArgumentException('Provide a strong secret, a database path, and valid thresholds.');
         }
 
@@ -54,12 +55,17 @@ final class Guard
 
     public function fields(string $form, bool $includeCheckbox = true): string
     {
-        $token = $this->issue($form);
+        return self::controls($this->issue($form), $includeCheckbox);
+    }
+
+    /** Pass an empty token when JavaScript will fetch a fresh one for cached markup. */
+    public static function controls(string $token = '', bool $includeCheckbox = true): string
+    {
         $checkbox = $includeCheckbox
             ? '<input type="checkbox" name="nc_checkbox" value="1" data-nc-checkbox checked disabled>'
             : '';
 
-        return '<input type="hidden" name="nc_token" value="' . $token . '">'
+        return '<input type="hidden" name="nc_token" value="' . htmlspecialchars($token, ENT_QUOTES, 'UTF-8') . '">'
             . '<input type="hidden" name="nc_edit_ms" value="" data-nc-edit-ms>'
             . '<input type="hidden" name="nc_webdriver" value="" data-nc-webdriver>'
             . '<div hidden><label>Leave this field empty <input type="text" name="nc_website"'
@@ -83,7 +89,7 @@ final class Guard
             return self::result('reject', ['expired_token']);
         }
 
-        $normalized = strlen($message) <= self::MAX_MESSAGE_BYTES ? preg_replace('/\s+/u', ' ', $message) : null;
+        $normalized = strlen($message) <= $this->maxMessageBytes ? preg_replace('/\s+/u', ' ', $message) : null;
         if ($normalized === null || trim($normalized) === '') {
             return self::result('reject', ['invalid_message']);
         }
