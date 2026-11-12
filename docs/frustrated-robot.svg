@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="168" height="132" viewBox="0 0 168 132" role="img" aria-labelledby="title">
+  <title id="title">A frustrated lime-green robot</title>
+  <g transform="rotate(-8 79 76)">
+    <path d="M79 42V22" stroke="#211d27" stroke-width="2.6"/>
+    <circle cx="79" cy="20" r="4.4" fill="#211d27"/>
+    <rect x="33" y="45" width="102" height="76" rx="14" fill="#211d27"/>
+    <rect x="28" y="40" width="102" height="76" rx="14" fill="#d6ff3f" stroke="#211d27" stroke-width="3"/>
+    <rect x="41" y="53" width="76" height="50" rx="7" fill="#211d27"/>
+    <path d="m53 65 11 4m30 0 11-4" fill="none" stroke="#f8f8f2" stroke-width="2.7"/>
+  </g>
+  <path d="M145 25h5v17h-5zM145 46h5v5h-5z" fill="#a32742" transform="rotate(14 147 38)"/>
+</svg>
