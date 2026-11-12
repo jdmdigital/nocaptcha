@@ -1,6 +1,6 @@
 # noCAPTCHA
 
-Self-hosted spam filtering for contact forms. PHP makes the decision before your handler delivers the message. Optional JavaScript adds two signals without requiring visitors to solve a puzzle or perform an extra step.
+Self-hosted spam filtering for contact forms. PHP makes the decision before your handler delivers the message. Optional JavaScript adds first-edit timing, an inverted checkbox trap, and browser-reported automation signals without requiring visitors to solve a puzzle or perform an extra step.
 
 [Try the Term 13 demo](https://term13.com/demos/nocaptcha/). The [original prototype](https://github.com/jdmdigital/nocaptcha/tree/5ea753bc0c102e571cc5e97efce0fda7cca02b81) is in the repository history.
 
